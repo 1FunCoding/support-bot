@@ -1,0 +1,305 @@
+:root {
+  --primary-color: #5e8b7e;
+  --secondary-color: #a7c4bc;
+  --accent-color: #dfeeea;
+  --text-color: #2d3e40;
+  --light-text: #f2f2f2;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: var(--text-color);
+  line-height: 1.4;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.step-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  transition: var(--transition);
+}
+
+.step {
+  width: 100%;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.step h2 {
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  position: relative;
+  display: inline-block;
+}
+
+.step h2::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 3px;
+  background-color: var(--secondary-color);
+  bottom: -10px;
+  left: 25%;
+}
+
+.option-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.option-btn {
+  padding: 12px 25px;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: var(--transition);
+  width: auto;
+  min-width: 150px;
+}
+
+.option-btn:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.option-btn.selected {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.custom-input {
+  display: flex;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.custom-input input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 2px solid var(--secondary-color);
+  border-radius: 25px 0 0 25px;
+  font-size: 16px;
+  outline: none;
+}
+
+.custom-input button {
+  padding: 12px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 0 25px 25px 0;
+  cursor: pointer;
+  font-size: 16px;
+  transition: var(--transition);
+}
+
+.custom-input button:hover {
+  background-color: #4d7268;
+}
+
+.optional-prompt {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 700px;
+}
+
+.optional-prompt textarea {
+  width: 100%;
+  height: 120px;
+  padding: 15px;
+  border: 2px solid var(--secondary-color);
+  border-radius: 10px;
+  font-size: 16px;
+  resize: vertical;
+  outline: none;
+}
+
+.continue-btn {
+  padding: 12px 30px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  transition: var(--transition);
+  margin-top: 15px;
+}
+
+.continue-btn:hover {
+  background-color: #4d7268;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.step:not(.active) {
+  display: none;
+}
+
+.support-content {
+  margin-top: 30px;
+  animation: fadeIn 0.8s ease;
+  min-height: 500px;
+  padding: 20px;
+  white-space: pre-wrap;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  line-height: 1.4;
+}
+
+.support-content p,
+.support-content h2,
+.support-content h3,
+.support-content h4 {
+  margin-bottom: 1em;
+}
+
+.restart-btn {
+  padding: 10px 25px;
+  background-color: #ddd;
+  color: var(--text-color);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: var(--transition);
+  display: block;
+  margin: 30px auto;
+}
+
+.restart-btn:hover {
+  background-color: #ccc;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  .step {
+    padding: 20px;
+  }
+  .option-container {
+    gap: 10px;
+  }
+  .option-btn {
+    padding: 10px 20px;
+    min-width: 130px;
+    font-size: 14px;
+  }
+}
+
+/* New Chat Conversation Styles */
+#chat-container {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  border-radius: 10px;
+  margin-top: 30px;
+  display: none;
+}
+#chat-messages {
+  min-height: 300px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.chat-message {
+  margin: 10px 0;
+  padding: 10px 15px;
+  border-radius: 15px;
+  max-width: 70%;
+  word-wrap: break-word;
+  line-height: 1.4;
+  margin-bottom: 1em;
+  white-space: pre-wrap;
+}
+.chat-message.bot {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  text-align: left;
+}
+.chat-message.user {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: right;
+  margin-left: auto;
+}
+
+/* Buttons for suggested follow-up topics */
+.suggestion-btn {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+.suggestion-btn:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+/* Increased font size for the 'Type your follow-up...' box */
+#chat-input {
+  font-size: 1.2rem;
+  line-height: 1.4;
+}

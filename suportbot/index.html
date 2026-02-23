@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Burnout & Overwhelm Support Bot</title>
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Burnout & Overwhelm Support Bot</h1>
+      <p>Personalized support for managing academic stress and burnout</p>
+    </header>
+
+    <div class="step-container">
+      <!-- Step 1: Select Major -->
+      <div class="step active" id="step-major">
+        <h2>Select Your Major</h2>
+        <p>Choose your field of study to receive tailored support</p>
+        <div class="option-container" id="major-options">
+          <button class="option-btn" data-value="computer_science">Computer Science</button>
+          <button class="option-btn" data-value="psychology">Psychology</button>
+          <button class="option-btn" data-value="communications">Communications</button>
+          <button class="option-btn" data-value="finance">Finance</button>
+          <button class="option-btn" data-value="economics">Economics</button>
+          <button class="option-btn" data-value="business">Business</button>
+          <button class="option-btn" data-value="mechanical_engineering">Mechanical Engineering</button>
+          <button class="option-btn" data-value="electrical_engineering">Electrical Engineering</button>
+          <button class="option-btn" data-value="biology">Biology</button>
+          <button class="option-btn" data-value="chemistry">Chemistry</button>
+          <button class="option-btn" data-value="environmental_science">Environmental Science</button>
+          <button class="option-btn" data-value="fine_arts_humanities">Fine Arts &amp; Humanities</button>
+        </div>
+        <div class="custom-input">
+          <input type="text" id="custom-major" placeholder="Or enter your major if not listed...">
+          <button id="custom-major-btn">Enter</button>
+        </div>
+        <button class="continue-btn" id="major-continue">Continue</button>
+      </div>
+
+      <!-- Step 2: Select Academic Year -->
+      <div class="step" id="step-year">
+        <h2>Select Your Year</h2>
+        <p>Your academic year helps us provide more relevant support</p>
+        <div class="option-container" id="year-options">
+          <button class="option-btn" data-value="freshman">Freshman</button>
+          <button class="option-btn" data-value="sophomore">Sophomore</button>
+          <button class="option-btn" data-value="junior">Junior</button>
+          <button class="option-btn" data-value="senior">Senior</button>
+        </div>
+        <button class="continue-btn" id="year-continue">Continue</button>
+      </div>
+
+      <!-- Step 3: Optional Prompt -->
+      <div class="step" id="step-prompt">
+        <h2>Optional: Tell Us More</h2>
+        <p>Share any specific challenges or concerns you're facing (optional)</p>
+        <div class="optional-prompt">
+          <textarea id="user-prompt" placeholder="For example: I'm struggling with balancing internship applications and coursework..."></textarea>
+        </div>
+        <button class="continue-btn" id="prompt-continue">Get Support</button>
+      </div>
+    </div>
+
+    <!-- Support Content Display -->
+    <div id="support-content" class="support-content" style="display: none;"></div>
+
+    <!-- Chat Conversation Container -->
+    <div id="chat-container">
+      <h4>Have more doubts? Feel free to ask.</h4>
+      <!-- Suggestions container above the chat input -->
+      <div id="suggestions-container" style="margin-bottom: 20px; display: none;">
+        <h4>Suggested Follow-Up Topics:</h4>
+        <div id="suggestion-buttons" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+      </div>
+      <div id="chat-messages"></div>
+      <div id="chat-input-area">
+        <textarea
+          id="chat-input"
+          rows="3"
+          placeholder="Type your follow-up or new concern here..."
+          style="width: 100%; padding: 10px; border: 2px solid var(--secondary-color); border-radius: 5px;"
+        ></textarea>
+        <button id="chat-send-btn" class="continue-btn" style="margin-top: 10px;">Send</button>
+      </div>
+    </div>
+
+    <!-- Restart button -->
+    <button class="restart-btn" id="restart-btn" style="display: none;">Start Over</button>
+  </div>
+
+  <!-- Link to external JS -->
+  <script src="main.js"></script>
+</body>
+</html>

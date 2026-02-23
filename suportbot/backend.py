@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, send_from_directory
 from openai import OpenAI
 import markdown2  
 
-client = OpenAI(api_key="AIzaSyDjP0gsO9hkQehcok23manjqZBTMQeSFH0", base_url="https://generativelanguage.googleapis.com/v1beta/openai/")
+client = OpenAI(api_key="", base_url="https://generativelanguage.googleapis.com/v1beta/openai/")
 
 app = Flask(__name__, static_folder='.', static_url_path='')
 
